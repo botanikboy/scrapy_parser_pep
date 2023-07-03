@@ -20,7 +20,6 @@ class PepParsePipeline:
         filename = f'status_summary_{timestamp}.csv'
         results_dir = BASE_DIR / 'results'
         results_dir.mkdir(exist_ok=True)
-        print("HEEEEEEEEEEEEEEEEEEEEELLLLLLLLLLLPPPPPPPPPPPPPPPPPP")
         file_path = results_dir / filename
         with open(file_path, mode='w', encoding='utf-8') as f:
             f.write('Статус,Количество\n')
