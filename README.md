@@ -1,8 +1,13 @@
 
-# Проект парсинга PEP на основе фреймворка Scrapy
+# Парсер PEP на основе фреймворка Scrapy
 Парсер собирает данные о стандартах PEP со страницы https://peps.python.org/ и с каждой страницы PEP.
 Производит подсчет найденных стандартов, и количество стандартов по статусам.
 
+## Технологии
+- [Python](https://www.python.org/)
+- [Scrapy](https://scrapy.org/)
+
+## Использование
 Установите зависимости командой:
 ```
 pip install -r requirements.txt
@@ -12,3 +17,7 @@ pip install -r requirements.txt
 scrapy crawl pep
 ```
 Парсер автоматически создаст директорию results и сохранит файлы в формате .csv с собранными данными.
+
+## Об авторе
+Разработано:
+[Илья Савинкин](https://www.linkedin.com/in/ilya-savinkin-6002a711/)
