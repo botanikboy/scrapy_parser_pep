@@ -14,15 +14,12 @@ class PepSpider(scrapy.Spider):
             yield response.follow(pep_link, callback=self.parse_pep)
 
     def parse_pep(self, response):
+        title = response.css('h1.page-title::text').get()
+        pattern = r'(?P<number>\d+) \– (?P<name>.+)'
+        number, name = re.search(pattern, title).groups()
         data = {
-            'number': re.search(
-                r'\d+',
-                response.css('h1.page-title::text').get()).group(),
-
-            'name': re.search(
-                r'\– (.+)',
-                response.css('h1.page-title::text').get()).group(1),
-
+            'number': number,
+            'name': name,
             'status': response.css('dt:contains("Status") + dd ::text').get(),
         }
         yield PepParseItem(data)

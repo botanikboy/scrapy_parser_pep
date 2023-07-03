@@ -1,22 +1,25 @@
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
+
+from pep_parse.constants import DT_FORMAT
 
 BASE_DIR = Path(__file__).parent.parent
 
 
 class PepParsePipeline:
     def __init__(self):
-        self.__peps = {}
+        self.__peps = defaultdict(int)
 
     def open_spider(self, spider):
         pass
 
     def process_item(self, item, spider):
-        self.__peps[item['status']] = self.__peps.get(item['status'], 0) + 1
+        self.__peps[item['status']] += 1
         return item
 
     def close_spider(self, spider):
-        timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        timestamp = datetime.now().strftime(DT_FORMAT)
         filename = f'status_summary_{timestamp}.csv'
         results_dir = BASE_DIR / 'results'
         results_dir.mkdir(exist_ok=True)
