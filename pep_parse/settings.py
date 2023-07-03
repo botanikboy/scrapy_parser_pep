@@ -1,6 +1,3 @@
-# from pathlib import Path
-
-
 BOT_NAME = 'pep_parse'
 
 SPIDER_MODULES = ['pep_parse.spiders']
@@ -83,7 +80,6 @@ ROBOTSTXT_OBEY = True
 # HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-# BASE_DIR = Path(__file__).parent.parent
 
 FEEDS = {
     'results/pep_%(time)s.csv': {
